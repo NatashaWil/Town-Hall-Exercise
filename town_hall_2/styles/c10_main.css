@@ -3,93 +3,135 @@
 	margin: 0;
 	padding: 0;
 }
+
 html {
 	background-color: white;
 }
+
 body {
 	font-family: Arial, Helvetica, sans-serif;
-    font-size: 100%;
-    width: 98%;                     /* changed from 800 pixels */
-    max-width: 960px;
-    margin: 0 auto;
-    border: 3px solid #931420;
-    background-color: #fffded;
+	font-size: 100%;
+	width: 98%;
+	/* changed from 800 pixels */
+	max-width: 960px;
+	margin: 0 auto;
+	border: 3px solid #931420;
+	background-color: #fffded;
+	display: grid;		/* grid for body */
+	grid-template: repeat(4, auto)/ 1fr;		/* 4 auto rows 1 full width column*/
+	grid-template-areas:
+		"head"
+		"nav"
+		"main"
+		"foot";		/* define grid areas */
 }
-a:focus, a:hover {
+
+a:focus,
+a:hover {
 	font-style: italic;
 }
+
 /* the styles for the header */
 header {
-	padding: 1.5em 0 2em 0;
+	padding: 1em  0 .5em 0;			/* adjust header top & bottom padding was (1.5em 0 2em 0) */
 	border-bottom: 3px solid #931420;
-		background-image: -moz-linear-gradient(
-	    30deg, #f6bb73 0%, #f6bb73 30%, white 50%, #f6bb73 80%, #f6bb73 100%);
-	background-image: -webkit-linear-gradient(
-	    30deg, #f6bb73 0%, #f6bb73 30%, white 50%, #f6bb73 80%, #f6bb73 100%);
-	background-image: -o-linear-gradient(
-	    30deg, #f6bb73 0%, #f6bb73 30%, white 50%, #f6bb73 80%, #f6bb73 100%);
-	background-image: linear-gradient(
-	    30deg, #f6bb73 0%, #f6bb73 30%, white 50%, #f6bb73 80%, #f6bb73 100%);
+	background-image: -moz-linear-gradient(30deg, #f6bb73 0%, #f6bb73 30%, white 50%, #f6bb73 80%, #f6bb73 100%);
+	background-image: -webkit-linear-gradient(30deg, #f6bb73 0%, #f6bb73 30%, white 50%, #f6bb73 80%, #f6bb73 100%);
+	background-image: -o-linear-gradient(30deg, #f6bb73 0%, #f6bb73 30%, white 50%, #f6bb73 80%, #f6bb73 100%);
+	background-image: linear-gradient(30deg, #f6bb73 0%, #f6bb73 30%, white 50%, #f6bb73 80%, #f6bb73 100%);
+	grid-area: head;
+	/* define grid area */
 }
+
 header h2 {
 	font-size: 175%;
 	color: #800000;
 }
+
 header h3 {
 	font-size: 130%;
 	font-style: italic;
 }
+
 header img {
 	float: left;
 	padding: 0 3.75%;
 }
+
 .shadow {
 	text-shadow: 2px 2px 2px #800000;
 }
+
 /* the styles for the navigation menu */
+#nav_menu {
+	grid-area: nav;		/* define grid area */
+}
+
 #nav_menu ul {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
+	display: grid;		/* nav menu in grid, 1 auto row, 1/5 columns, vertically centered */
+	grid-template: auto/ repeat(5, 1fr);
+	align-content: center;
 }
+
 #nav_menu ul li a {
-    display: block;
-    text-align: center;
-    padding: 1em 0;
-    text-decoration: none;
-    background-color: #800000;
-    color: white;
-    font-weight: bold;
+	display: block;
+	text-align: center;
+	padding: 1em 0;
+	text-decoration: none;
+	background-color: #800000;
+	color: white;
+	font-weight: bold;
 }
+
 #nav_menu a.current {
 	color: yellow;
 }
 
+/* style for main */
+main {
+	grid-area: main;		/* define grid area */
+	display: grid;		/* grid container for section & aside */
+	grid-template: auto/ 30% auto;	
+	grid-gap: 2.5%;
+	
+}
+
 /* the styles for the section */
 section {
-    padding: 0 2.5% 20px 2.5%;
+	padding: 0 3.7% 20px 0;	/* section padding adjusted */
+	grid-row: 1/2; 			/* numbered lines for section & aside */
+	grid-column: 2/3;
 }
+
 section h1 {
 	font-size: 150%;
 	padding: .5em 0 .25em 0;
 	margin: 0;
 }
+
 section h2 {
 	color: #800000;
 	font-size: 130%;
 	padding: .5em 0 .25em 0;
 }
+
 section p {
 	padding-bottom: .5em;
 }
+
 section blockquote {
 	padding: 0 2em;
 	font-style: italic;
 }
+
 section ul {
 	padding: 0 0 .25em 1.25em;
 	list-style-type: circle;
 }
+
 section li {
 	padding-bottom: .35em;
 }
@@ -100,13 +142,16 @@ article {
 	border-top: 2px solid #800000;
 	border-bottom: 2px solid #800000;
 }
+
 article h2 {
 	padding-top: 0;
 }
+
 article h3 {
 	font-size: 105%;
 	padding-bottom: .25em;
 }
+
 article img {
 	float: right;
 	max-width: 40%;
@@ -117,17 +162,22 @@ article img {
 
 /* the styles for the aside */
 aside {
-    padding: 0 0 20px 2.5%;
+	padding: 0 0 20px 8.3%;		/* adjust left aside padding */
+	grid-row: 1/2; 				/* numbered lines for section & aside */
+	grid-column: 1/2;
 }
+
 aside h2 {
 	color: #800000;
 	font-size: 130%;
 	padding: .5em 0 .25em 0;
 }
+
 aside h3 {
 	font-size: 105%;
 	padding-bottom: .25em;
 }
+
 aside img {
 	padding-bottom: 1em;
 }
@@ -135,12 +185,16 @@ aside img {
 /* the styles for the footer */
 footer {
 	background-color: #931420;
+	grid-area: foot;
+	/* define grid area */
 }
+
 footer p {
 	text-align: center;
 	color: white;
 	padding: 1em 0;
 }
+
 #mobile_menu {
 	display: none;
 }
@@ -149,41 +203,72 @@ footer p {
 	section h1 {
 		font-size: 125%
 	}
-	section h2, aside h2 {
+
+	section h2,
+	aside h2 {
 		font-size: 110%;
 	}
+
 	aside h3 a {
 		font-size: 85%;
 	}
 }
 
 @media only screen and (max-width: 648px) {
-	header img { float: none; }
-	header { text-align: center; }
+	header img {
+		float: none;
+	}
+
+	header {
+		text-align: center;
+		display: grid;			/* header grid, 3 rows 1 col */
+        grid-template: repeat(3, auto) / 1fr;
+        grid-gap: .5em;
+		padding: 1.5em 0 1.5em 0;
+	}
+	main {
+        grid-template: auto auto / 1fr;
+    }
 	section {
 		float: none;
 		width: 95%;
+		grid-column: 1 / 2;
+		margin: 0 2.5%;
+		padding-right: 0;
 	}
+
 	aside {
 		float: none;
 		padding-right: 2.5%;
+		padding-left: 2.5%;
 		width: 95%;
+		grid-row: 2 / 3;
 	}
-	article img { max-width: 30%; }
+
+	article img {
+		max-width: 30%;
+	}
+
 	#speakers {
 		column-count: 2;
 	}
+
 	#nav_menu {
 		display: none;
 	}
+
 	#mobile_menu {
 		display: block;
+		grid-area: nav;			/* mobile menu in nav */
 	}
+
 	.slicknav_menu {
 		background-color: #800000 !important;
 	}
 }
 
 @media only screen and (max-width: 414px) {
-	body { font-size: 90%; }
+	body {
+		font-size: 90%;
+	}
 }
