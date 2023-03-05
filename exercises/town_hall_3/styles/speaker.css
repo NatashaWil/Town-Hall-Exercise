@@ -1,4 +1,8 @@
 /* the styles for the elements */
+@font-face {
+	font-family: HARLOWSI;				/* Choose a web font on system & copy it to styles folder  */
+	src:url("/exercises/town_hall_3/styles/HARLOWSI.TTF");
+}
 * {
 	margin: 0;
 	padding: 0;
@@ -27,6 +31,7 @@ header {
 header h2 {
 	font-size: 175%;
 	color: #800000;
+	font-family: HARLOWSI; 			/* Apply new font to h2*/
 }
 header h3 {
 	font-size: 130%;
