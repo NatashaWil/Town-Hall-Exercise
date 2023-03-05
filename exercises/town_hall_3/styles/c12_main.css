@@ -113,6 +113,38 @@ section li {
 	padding-bottom: .35em;
 }
 
+
+
+/* the styles for the table */					
+figcaption{
+	color: #800000; 			/* caption color */
+}
+table {
+	border-collapse: collapse; /* makes fluid border, no gaps */
+}
+th{
+	border-top: 2px solid #800000;
+	border-bottom: 2px solid #800000;
+}
+th, td {
+	padding: .2em .7em;
+}
+.left {
+	text-align: left;   		/* align date column left*/
+}
+.right {
+	text-align: right;			/* align cost column right*/
+}
+.bttm_border {
+	border-bottom: 2px solid #800000;	/* bottom borders on select rows*/
+}
+tfoot {
+	font-weight: bold;
+	text-align: right;			/* align footer right*/
+}
+
+
+
 /* the styles for the article */
 article {
 	padding: .5em 0;
